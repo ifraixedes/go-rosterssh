@@ -1,0 +1,55 @@
+gcp-qa-thanos-0:
+  host: 10.226.119.18
+  user: ivan
+  minion_opts:
+    sops_pillars:
+      - gcp-qa-thanos-0.enc.yml
+
+# Some comment
+htz-client-ash-1:
+  host: 10.161.89.15
+  user: root
+
+htz-prod-cockroach-0:
+  host: 10.119.37.58
+  # user should your username (as in GCP or Hetzner)
+  #ifc user: {YOUR_HETZNER_USERNAME}
+  minion_opts:
+    sops_pillars:
+      - htz-prod-stargate.enc.yml
+      - wireguard.enc.yml
+
+# A multiline
+# comment
+
+fr7-fw1:
+  host: 172.20.0.2
+  #ifc user: {YOUR_GCP_USERNAME}
+  minion_opts:
+    sops_pillars:
+      - prod-common.enc.yml
+      - prod-fr7.enc.yml
+  ssh_options:
+    - "ProxyJump=ubuntu@172.201.10.110:2222"
+    - "ControlPath=~/.ssh/mux/cm-%r@%h:%p"
+
+fr7-fw2:
+  host: 172.20.0.3
+  user: boom
+  ssh_options: ["ProxyJump=ubuntu@10.201.108.111:7854"]
+
+fictional-box-1:
+  host: 10.22.119.18
+  # user: wow
+  minion_opts:
+    sops_pillars:
+      - gcp-qa-thanos-0.enc.yml
+  ssh_options: ["ProxyJump=ubuntu@172.201.10.11:333", "ControlPath=~/.ssh/mux/cm-%r@%h:%p" ]
+
+fictional-box-2:
+  host: 172.226.19.188
+  user: wow
+       # ssh_options:
+       #  - "ProxyJump=ubuntu@81.201.108.110:2222"
+  minion_opts:
+    sops_pillars:

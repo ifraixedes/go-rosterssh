@@ -1,0 +1,32 @@
+Host test-gcp-qa-thanos-0
+  Hostname 10.226.119.18
+  User ivan
+
+Host test-htz-client-ash-1
+  Hostname 10.161.89.15
+  User root
+
+Host test-htz-prod-cockroach-0
+  Hostname 10.119.37.58
+  User my-hetzner-username
+
+Host test-fr7-fw1
+  Hostname 172.20.0.2
+  User my-google-cloud-user
+  ProxyJump ubuntu@172.201.10.110:2222
+  ControlPath ~/.ssh/mux/cm-%r@%h:%p
+
+Host test-fr7-fw2
+  Hostname 172.20.0.3
+  User boom
+  ProxyJump ubuntu@10.201.108.111:7854
+
+Host test-fictional-box-1
+  Hostname 10.22.119.18
+  ProxyJump ubuntu@172.201.10.11:333
+  ControlPath ~/.ssh/mux/cm-%r@%h:%p
+
+Host test-fictional-box-2
+  Hostname 172.226.19.188
+  User wow
+
